@@ -13,27 +13,39 @@
                 <br>
                 Lorem ipsum dolor sit amet, consectetur a
             </p>
-            <div class="mt-12 mb-4">
-                <img class="w-auto h-80 mx-auto bg-primary p-2" 
-                    src="https://avatars2.githubusercontent.com/u/1791228?s=460&v=4"
+            <div class="mt-12">
+                <img class="w-full h-80 mx-auto bg-primary p-2" 
+                    src="https://picsum.photos/200/300"
                     loading="lazy">
             </div>
-            <p class="mt-12 mb-4 text-xl mx-auto text-center">
+
+            <CTA></CTA>
+
+            <p class="mb-4 text-xl mx-auto text-center">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
                 <br>
                 Lorem ipsum dolor sit amet, consectetur a
             </p>
              <div class="mt-12 mb-4">
-                <img class="w-auto h-80 mx-auto bg-primary p-2" 
-                    src="https://avatars2.githubusercontent.com/u/1791228?s=460&v=4"
+                <img class="w-full h-80 mx-auto bg-primary p-2" 
+                    src="https://picsum.photos/200/300"
                     loading="lazy">
             </div>
+
+            <CTA></CTA>
+
         </div>
     </section>
 </template>
 
 <script>
+import CTA from "../CTA.vue"
+
 export default {
-    name: "WhyUs"
+    name: "WhyUs",
+
+    components: {
+        CTA
+    }
 }
 </script>

@@ -3,9 +3,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width,height=device-height initial-scale=1">
 
-    <title>Organic Village</title>
+    <title>Cosmetics naturels et BIO products and packs for your beauty | Organic Village</title>
 
     <meta name="robots" content="noodp,noydir">
     <meta name="description" content="Cosmétiques naturels et BIO products and packs for your beauty.">

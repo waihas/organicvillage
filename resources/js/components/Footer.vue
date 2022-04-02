@@ -2,46 +2,46 @@
     <footer class="text-gray-600 body-font">
         <div class="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
             <div class="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left md:mt-0 mt-10">
-            <router-link :to="{ name: 'home' }" class="flex md:justify-start justify-center">
-                <img id="toggleColour" src="/img/main-logo.svg"
-                    class="h-24 w-auto py-1" alt="Organic Village Logo">
-            </router-link>
+                <router-link :to="{ name: 'home' }" class="flex md:justify-start justify-center">
+                    <img id="toggleColour" src="/img/main-logo.svg"
+                        class="h-24 w-auto py-1" alt="Organic Village Logo">
+                </router-link>
             </div>
             <div class="flex-grow flex flex-wrap md:pr-20 -mb-10 md:text-left text-center order-first">
-            <div class="md:w-3/4 w-full px-4">
-                <h2 class="title-font font-medium text-gray-900 tracking-widest uppercase text-sm mb-3">Policies</h2>
-                <nav class="list-none mb-10">
-                <li>
-                    <a class="text-gray-600 hover:text-primary-dark cursor-pointer">Politique de confidentialité</a>
-                </li>
-                <li>
-                    <a class="text-gray-600 hover:text-primary-dark cursor-pointer">Nos terms et conditions</a>
-                </li>
-                <li>
-                    <a class="text-gray-600 hover:text-primary-dark cursor-pointer">Déclaration d'accessibilité web</a>
-                </li>
-                <li>
-                    <a class="text-gray-600 hover:text-primary-dark cursor-pointer">Livraison et remboursement</a>
-                </li>
-                </nav>
-            </div>
-            <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-                <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">FOLLOW US</h2>
-                <nav class="list-none mb-10">
-                <li>
-                    <a class="text-gray-600 hover:text-primary-dark cursor-pointer">Facebook</a>
-                </li>
-                <li>
-                    <a class="text-gray-600 hover:text-primary-dark cursor-pointer">Instagram</a>
-                </li>
-                <li>
-                    <a class="text-gray-600 hover:text-primary-dark cursor-pointer">YouTube</a>
-                </li>
-                <li>
-                    <a class="text-gray-600 hover:text-primary-dark cursor-pointer">Twitter</a>
-                </li>
-                </nav>
-            </div>
+                <div class="md:w-3/4 w-full px-4">
+                    <h2 class="title-font font-medium text-gray-900 tracking-widest uppercase text-sm mb-3">Policies</h2>
+                    <nav class="list-none mb-10">
+                        <li>
+                            <router-link :to="{name: 'legal.privacypolicy'}" class="text-gray-600 hover:text-primary-dark cursor-pointer">Politique de confidentialité</router-link>
+                        </li>
+                        <li>
+                            <router-link :to="{name: 'legal.terms'}" class="text-gray-600 hover:text-primary-dark cursor-pointer">Nos terms et conditions</router-link>
+                        </li>
+                        <li>
+                            <router-link :to="{name: 'legal.web'}" class="text-gray-600 hover:text-primary-dark cursor-pointer">Déclaration d'accessibilité web</router-link>
+                        </li>
+                        <li>
+                            <router-link :to="{name: 'legal.livraison'}" class="text-gray-600 hover:text-primary-dark cursor-pointer">Livraison et remboursement</router-link>
+                        </li>
+                    </nav>
+                </div>
+                <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+                    <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">FOLLOW US</h2>
+                    <nav class="list-none mb-10">
+                        <li>
+                            <a class="text-gray-600 hover:text-primary-dark cursor-pointer">Facebook</a>
+                        </li>
+                        <li>
+                            <a class="text-gray-600 hover:text-primary-dark cursor-pointer">Instagram</a>
+                        </li>
+                        <li>
+                            <a class="text-gray-600 hover:text-primary-dark cursor-pointer">YouTube</a>
+                        </li>
+                        <li>
+                            <a class="text-gray-600 hover:text-primary-dark cursor-pointer">Twitter</a>
+                        </li>
+                    </nav>
+                </div>
             </div>
         </div>
         <div class="bg-gray-100">
