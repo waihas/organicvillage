@@ -4,19 +4,19 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
+// require('./bootstrap');
 
 // window.Vue = require('vue').default;
 
 // import router from './router';
 // import App from './layouts/App.vue';
 
-import Vue from 'vue'
-import VueRouter from 'vue-router';
+// import Vue from 'vue'
+// import VueRouter from 'vue-router';
 
-import router from './Router/index'
-import store from './Store/index';
-import App from './Components/App.vue'
+// import router from './Router/index'
+// import store from './Store/index';
+// import App from './Components/App.vue'
 
 /**
  * The following block of code may be used to automatically register your
@@ -47,11 +47,30 @@ import App from './Components/App.vue'
 //     render: h => h(App)
 // });
 
-Vue.use(VueRouter)
+// Vue.use(VueRouter)
 
-const app = new Vue({
-  el: '#app',
-  router,
+// const app = new Vue({
+//   el: '#app',
+//   router,
+//   store,
+//   components: { App }
+// });
+
+import Vue from 'vue'
+import store from '~/store'
+import router from '~/router'
+import i18n from '~/plugins/i18n'
+import App from '~/components/App'
+
+import '~/plugins'
+import '~/components'
+
+Vue.config.productionTip = false
+
+/* eslint-disable no-new */
+new Vue({
+  i18n,
   store,
-  components: { App }
-});
+  router,
+  ...App
+})

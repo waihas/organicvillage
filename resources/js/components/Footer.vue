@@ -1,5 +1,5 @@
 <template>
-    <footer class="text-gray-600 body-font">
+    <footer class="text-gray-600 bg-gray-50">
         <div class="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
             <div class="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left md:mt-0 mt-10">
                 <router-link :to="{ name: 'home' }" class="flex md:justify-start justify-center">

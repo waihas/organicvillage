@@ -1,6 +1,6 @@
 <template>
     <!-- <section class="bg-white flex flex-col justify-center pt-16 lg:px-8" -->
-    <section class="bg-white flex flex-col justify-center pt-14"
+    <section class="bg-white flex flex-col justify-center"
         style="background-image: url('/img/grass.jpeg'); background-attachment: fixed"
         loading="lazy">
         <!-- <div class="w-11/12 md:max-w-5xl mx-auto pt-8 bg-black bg-opacity-50"> -->

@@ -1,5 +1,5 @@
 <template>
-    <section class="bg-gray-50 py-16">
+    <section class="bg-white py-16">
         <!-- <img src="/img/main-logo-circle.svg"
             class="w-48 h-48 mx-auto"
             alt="Logo Organic Village"

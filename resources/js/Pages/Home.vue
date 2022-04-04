@@ -1,5 +1,5 @@
 <template>
-    <div class="home">
+    <div>
         <!-- <h1>
             {{ count }}
         </h1>
@@ -51,7 +51,6 @@
 </template>
 
 <script>
-// import { mapState } from 'vuex';
 import WhyUs from '../components/Home/WhyUs.vue';
 import Hero from '../components/Home/Hero.vue';
 
@@ -63,16 +62,12 @@ export default {
         Hero
     },
 
-    data() {
-        return {
-            count: 1,
-        }
+    metaInfo () {
+        return { title: 'Cosmetics naturels et BIO products and packs for your beauty' }
     },
 
-//   computed: {
-//     ...mapState({
-//       count: state => state.count
-//     }),
-//   }
+    data: () => ({
+        title: window.config.appName,
+    }),
 }
 </script>

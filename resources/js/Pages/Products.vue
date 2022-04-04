@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section class="flex flex-col justify-center p-8 mb-10 bg-white">
+    <section class="flex flex-col justify-center p-2 md:p-8 mb-10 bg-white">
         <nav class="w-full py-4">
             <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-3">
                 <h3 class="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-700 text-xl " href="#">
@@ -9,12 +9,9 @@
             </div>
         </nav>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-8 pt-8 max-w-7xl mx-auto">
-            <!-- @foreach ($section->gammes as $gamme) -->
-                <!-- @include('main.partials.card.gamme', ['gamme' => $gamme]) -->
-              <div v-for="index in 3" :key="index">
-                <gamme-product></gamme-product>
+              <div v-for="gamme in gammes" :key="gamme.id">
+                <gamme-product :gamme="gamme"></gamme-product>
               </div>
-            <!-- @endforeach -->
         </div>
         <nav class="w-full py-4 mt-8">
             <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-3">
@@ -24,12 +21,9 @@
             </div>
         </nav>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-8 pt-8 max-w-7xl mx-auto">
-            <!-- @foreach ($section->products as $product) -->
-            <div v-for="index in 6" :key="index">
-                <single-product></single-product>
+            <div v-for="product in products" :key="product.id">
+                <single-product :product="product"></single-product>
             </div>
-                <!-- @include('main.partials.card.product', ['product' => $product, 'color_bg' => 'bg-primary-dark']) -->
-            <!-- @endforeach -->
         </div>
     </section>
     
@@ -49,7 +43,7 @@
     </section>
     @endisset -->
 
-    <section class="bg-gray-50 py-24">
+    <!-- <section class="bg-gray-50 py-24">
         <h2 class="w-full my-2 text-4xl font-black leading-tight text-center text-gray-800">
             Why Us
         </h2>
@@ -61,35 +55,38 @@
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis eaque necessitatibus voluptate molestiae in facere iusto nobis officiis possimus, sint atque quam obcaecati consectetur similique quis, tempore perferendis! Nulla, architecto.
             </p>
         </div>
-    </section>
+    </section> -->
   </div>
-  <!-- <show-all-products /> -->
-  <!-- <div class="container mt-5">
-    <div class="row justify-content-center">
-      <div class="col-md-8">
-        <div class="card">
-          <div class="card-header">About</div>
-            <div class="flex justify-center mt-24">
-                <h1 class="text-2xl font-bold text-gray-700">Organic Village</h1>
-            </div>
-          <div class="card-body">About Page</div>
-        </div>
-      </div>
-    </div>
-  </div> -->
 </template>
 
 <script>
 // import ShowAllProducts from '../components/Products/ShowAllProducts.vue';
 import GammeProduct from '../components/Products/GammeProduct.vue'
 import SingleProduct from '../components/Products/SingleProduct.vue'
+import { mapGetters } from 'vuex'
 
 export default {
     name: "Products",
 
+    metaInfo () {
+        return { title: 'Products' }
+    },
+
     components: {
       GammeProduct,
       SingleProduct
-    }
+    },
+
+    computed: mapGetters({
+        gammes: 'cart/allGammes',
+        products: 'cart/allProducts',
+        // lengthGammes: 'cart/getNumberOfGammes',
+        // lengthProducts: 'cart/getNumberOfProducts'
+    }),
+    // methods: {
+    //     ...mapActions('cart',{
+    //         addToCart: 'addToCart',
+    //     }),
+    // }
 }
 </script>

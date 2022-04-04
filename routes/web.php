@@ -17,6 +17,10 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/{any}', function () {
-    return view('vue');
-})->where('any', '.*');
+Route::get('{path}', function () {
+    return view('welcome');
+})->where('path', '(.*)');
+
+// Route::get('/{any}', function () {
+//     return view('vue');
+// })->where('any', '.*');
