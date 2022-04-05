@@ -42,6 +42,10 @@
                                     <div class="mx-3">
                                         <h3 class="text-sm text-gray-600">
                                             {{ p.name }}
+                                            <span v-if="p.option" class="italic">
+                                                <br>
+                                                {{ p.option }}
+                                            </span>
                                         </h3>
                                         <div class="flex items-center mt-2">
                                                 <!-- wire:click="updateQty('{{ $item->rowId }}', '{{$item->qty - 1}}')" -->
@@ -58,7 +62,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <span class="text-gray-600">{{ p.price }} MAD</span>
+                                <span class="text-gray-900">{{ p.price }} MAD</span>
                             </div>
                         </div>
 
@@ -116,7 +120,7 @@ export default {
 
     computed: {
         ...mapGetters({
-            products: 'cart/cartProducts'
+            products: 'cart/cart'
         }),
         total () {
             return this.products.reduce((total, p) => {
@@ -124,10 +128,5 @@ export default {
             }, 0)
         }
     },
-    methods: {
-        checkout(){
-            alert('Pay us $' + this.total)
-        }
-    }
 }
 </script>

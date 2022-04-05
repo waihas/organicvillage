@@ -8,7 +8,7 @@
                 </h3>
             </div>
         </nav>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-8 pt-8 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-8 pt-8 max-w-7xl mx-auto">
               <div v-for="gamme in gammes" :key="gamme.id">
                 <gamme-product :gamme="gamme"></gamme-product>
               </div>

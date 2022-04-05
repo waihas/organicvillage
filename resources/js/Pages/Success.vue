@@ -10,7 +10,7 @@
                <hr class=" w-12 h-1 bg-primary rounded-full my-8">
                <p class="text-gray-800 text-base leading-relaxed my-8 font-semibold">
                      <!-- {{ Session::get('successOrder') }} -->
-                     Your order 213-312 is successfully registered, Thank you for your purchase.
+                     Your order {{orderId}} is successfully registered, Thank you for your purchase.
                </p>
                <router-link :to="{name: 'products'}" class="bg-primary-dark text-white rounded p-4">Go Shopping</router-link>
             </div>
@@ -45,6 +45,8 @@ export default {
     metaInfo () {
         return { title: 'Order successfully' }
     },
+
+    props: ['orderId']
     
     // components: { OrderSuccess },
 }

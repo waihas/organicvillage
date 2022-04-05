@@ -36,9 +36,9 @@ export default {
 
   computed: {
     itemsInCart(){
-      let cartProducts = this.$store.getters['cart/cartProducts'];
-      let cartGammes = this.$store.getters['cart/cartGammes'];
-      return cartProducts.reduce((accum, item) => accum + item.quantity, 0) + cartGammes.reduce((accum, item) => accum + item.quantity, 0)
+      let cart = this.$store.getters['cart/cart'];
+      // let cartGammes = this.$store.getters['cart/cartGammes'];
+      return cart.reduce((accum, item) => accum + item.quantity, 0) // + cartGammes.reduce((accum, item) => accum + item.quantity, 0)
     }
   }
 

@@ -232,55 +232,67 @@ export const getters = {
     allGammes: state => state.gammes, // would need action/mutation if data fetched async
     getNumberOfProducts: state => (state.products) ? state.products.length : 0,
     getNumberOfGammes: state => (state.gammes) ? state.gammes.length : 0,
-    cartProducts: state => {
-        return state.added.map(({ id, quantity }) => {
+    cart: state => {
+        return state.added.map(({ id, price, option, quantity }) => {
             const product = state.products.find(p => p.id === id) || state.gammes.find(p => p.id === id)
             return {
                 name: product.name,
                 image: product.image,
                 description: product.description,
-                price: product.price,
-                prices: product.prices,
+                price,
+                option,
                 quantity
             }
         })
     },
-    cartGammes: state => {
-        return state.added.map(({ id, quantity }) => {
-            const gamme = state.gammes.find(p => p.id === id) || state.products.find(p => p.id === id)
-            return {
-                name: gamme.name,
-                image: gamme.image,
-                products: gamme.products,
-                price: gamme.price,
-                quantity
-            }
-        })
-    }
 }
 
 // mutations
 export const mutations = {
-    [types.ADD_TO_CART] (state, { id, options }) {
+    [types.ADD_TO_CART] (state, { id, price, option }) {
         const record = state.added.find(p => p.id === id)
         if (!record) {
             state.added.push({
                 id,
-                options,
+                price,
+                option,
                 quantity: 1
             })
         } else {
-            record.quantity++
+            // here check if option is the same
+            // then increase qty
+            // otherwise new push
+            // console.log('record' + JSON.stringify(record))
+            // console.log("sqdfqdsf" + Object.keys(record.prices));
+            // if(record.price == 0) {
+                console.log(record.option +"=="+ option)
+
+                if(record.option == option)
+                    record.quantity++
+                else {
+                    state.added.push({
+                        id,
+                        price,
+                        option,
+                        quantity: 1
+                    })
+                }
+            // }
+            // else {
+            //     record.quantity++
+            // }
         }
     }
 }
 
 // actions
 export const actions = {
-    addToCart({ commit }, product, options){
+    addToCart({ commit }, payload){
+        console.log('received data: ' + payload.productId + ' ' + payload.price +' and ' +  payload.option)
         commit(types.ADD_TO_CART, {
-            id: product.id,
-            option: options
+            id: payload.productId,
+            price: payload.price,
+            option: payload.option
         })
     }
 }

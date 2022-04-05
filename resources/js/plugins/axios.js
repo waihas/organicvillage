@@ -29,7 +29,7 @@ axios.interceptors.response.use(response => response, error => {
       title: i18n.t('error_alert_title'),
       text: i18n.t('error_alert_text'),
       reverseButtons: true,
-      confirmButtonColor: "#10b981",
+      confirmButtonColor: "#C2CF00",
       confirmButtonText: i18n.t('ok'),
       cancelButtonText: i18n.t('cancel')
     })

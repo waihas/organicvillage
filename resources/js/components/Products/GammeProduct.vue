@@ -38,7 +38,7 @@
                     </li>
                 </ul>
             </div>
-            <button type="button" @click="addToCart(gamme, '')"
+            <button type="button" @click="addItemToCart()"
                 class="w-full text-sm md:text-base block bg-primary-default py-2 px-2 text-white text-center md:rounded shadow-lg uppercase font-light mt-6 hover:bg-primary hover:text-white duration-300 ease-in-out">
                 Add to cart
             </button>
@@ -58,6 +58,14 @@ export default {
         ...mapActions('cart',{
             addToCart: 'addToCart',
         }),
+        addItemToCart() {
+            var payload = {
+                'productId': this.gamme.id,
+                'price': this.gamme.price,
+                'option': ''
+            }
+            this.addToCart(payload)
+        }
     }
 }
 </script>

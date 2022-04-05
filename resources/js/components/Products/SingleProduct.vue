@@ -6,7 +6,7 @@
         loading="lazy">    
     <div class="relative md:px-4 -mt-6 md:-mt-16">
         <div class="md:hidden">
-            <button type="button" @click="addToCart(product, selectedProductPrice || '')" 
+            <button type="button" @click="addItemCart()" 
                 class="w-full text-sm md:text-base block bg-primary-default py-2 px-2 text-white text-center md:rounded shadow-lg uppercase font-light mt-6 hover:bg-primary hover:text-white duration-300 ease-in-out">
                 Add to cart
             </button>
@@ -53,7 +53,7 @@
                 </div>
             </div>
             <div class="hidden md:block">
-                <button type="button" @click="addToCart(product, selectedProductPrice || '')"
+                <button type="button" @click="addItemCart()"
                   class="w-full text-sm md:text-base block bg-primary-default py-2 px-2 text-white text-center md:rounded shadow-lg uppercase font-light mt-6 hover:bg-primary hover:text-white duration-300 ease-in-out">
                   Add to cart
               </button>
@@ -74,6 +74,32 @@ export default {
     data() {
         return {
             selectedProductPrice: Object.keys(this.product.prices).length ? Object.values(this.product.prices)[0] : 0,
+            selectedProductName: Object.keys(this.product.prices).length ? Object.keys(this.product.prices)[0] : '',
+        }
+    },
+
+    watch: {
+        selectedProductPrice(newVal, old) {
+            
+            Object.entries(this.product.prices).map(function(value, key) {
+                console.log('value ' + value + 'newVal' + newVal)
+                if(newVal == key)
+                    this.selectedProductName = value
+            });
+
+            console.log('this.selectedProductName' + this.selectedProductName)
+
+            // this.product.prices.forEach((el, index) => {
+            //     console.log(el + " " + index)
+            //     // if (el.word === newVal) state.index =  index;
+            //     })
+            // console.log(this.product.indexOf(newVal))
+            // for(product in this.product.prices) {
+            //     if(product.value == newQuestion) {
+            //         this.selectedProductName = product.key
+            //         console.log(product.key);
+            //     }
+            // }
         }
     },
 
@@ -81,6 +107,28 @@ export default {
         ...mapActions('cart',{
             addToCart: 'addToCart',
         }),
+        addItemCart() {
+            if(this.product.price == 0) {
+                // insert selected of prices
+                // and insert empty option
+                var payload = {
+                    'productId': this.product.id,
+                    'price': this.selectedProductPrice,
+                    'option': this.selectedProductName
+                }
+                this.addToCart(payload)
+            }
+            else {
+                // insert product.price
+                var payload = {
+                    'productId': this.product.id,
+                    'price': this.product.price,
+                    'option': ''
+                }
+                // and insert option with name of selected price
+                this.addToCart(payload)
+            }
+        }
     }
 }
 </script>
