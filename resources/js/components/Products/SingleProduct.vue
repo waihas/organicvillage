@@ -34,7 +34,7 @@
                 @else -->
                 <div v-if="product.price == 0" class="flex w-1/2 md:w-auto items-center">
                     <div class="relative">
-                        <select v-model="selectedProductPrice" class="rounded border appearance-none border-gray-100 py-2 text-sm focus:outline-none pl-3 pr-3 md:pr-10 w-full md:w-auto">
+                        <select v-model="selectedProductPrice" class="rounded border appearance-none border-gray-300 py-2 text-sm focus:outline-none pl-3 pr-3 md:pr-10 w-full md:w-auto">
                             <option v-for="(price, index) in product.prices" :key="index" :value="price">{{index}}</option>
                             <!-- v-bind:selected="index === Object.keys(product.prices)[0].trim()" -->
                         </select>

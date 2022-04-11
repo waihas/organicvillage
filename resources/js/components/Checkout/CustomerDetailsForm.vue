@@ -101,7 +101,6 @@ export default {
         // empty cart
         this.$router.push({ name: 'checkout.success', params: { orderId: data.orderId } })
       }
-  }
-
+    }
 };
 </script>

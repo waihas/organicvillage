@@ -29,7 +29,9 @@
                 </div>
             </div>
 
-            <CTA></CTA>
+            <div class="max-w-7xl mx-auto px-6">
+                <CTA></CTA>
+            </div>
 
         </div>
     </section>

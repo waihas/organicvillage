@@ -29,8 +29,8 @@
                         </div>
 
                         <div v-show="!products.length" class="px-6 mb-3">
-                            <p class="text-red-500">Your cart is empty!</p>
-                            <router-link :to="{name: 'products'}">Go shopping</router-link>
+                            <p class="text-gray-600">Your cart is empty!</p>
+                            <router-link :to="{name: 'products'}" class="font-medium text-primary-dark hover:text-primary-default">Go shopping</router-link>
                         </div>
 
                         <div v-show="products.length" class="px-6 mb-3">
@@ -48,49 +48,52 @@
                                             </span>
                                         </h3>
                                         <div class="flex items-center mt-2">
-                                                <!-- wire:click="updateQty('{{ $item->rowId }}', '{{$item->qty - 1}}')" -->
-                                            <button
+                                            <button @click="decrementQty(product.id)"
                                                 class="text-gray-500 focus:outline-none focus:text-gray-600">
                                                 <svg class="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                                             </button>
                                             <span class="text-gray-800 mx-2">{{ p.quantity }}</span>
-                                                <!-- wire:click="updateQty('{{ $item->rowId }}', '{{$item->qty + 1}}')" -->
-                                            <button 
+                                            <button @click="incrementQty(product.id)"
                                                 class="text-gray-500 focus:outline-none focus:text-gray-600">
                                                 <svg class="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                                             </button>
                                         </div>
                                     </div>
                                 </div>
-                                <span class="text-gray-900">{{ p.price }} MAD</span>
+                                <span class="text-gray-900">{{ p.price }} DH</span>
                             </div>
                         </div>
 
                         <hr class="my-4">
+                        
+                        <coupon></coupon>
+                        
+                        <hr class="my-4">
+                        
                         <div class="flex justify-between items-center mb-8">
                             <div class="w-1/2 pl-6">
-                                <!-- <div class="w-full">
-                                    <span class="text-gray-800 text-sm">Subtotal</span>
+                                <div class="w-full">
+                                    <span class="text-gray-800 text-sm">Livraison</span>
                                 </div>
                                 <div class="w-full">
                                     <span class="text-gray-800 text-sm">Discount</span>
                                 </div>
-                                <hr class="my-5"> -->
+                                <hr class="my-5">
                                 <div class="w-full">
                                     <span class="text-gray-800 font-bold">Total</span>
                                 </div>
                             </div>
                             <div class="w-1/2 pr-6 text-right">
-                                <!-- <div class="w-full"> -->
-                                    <!-- <span class="text-gray-800 text-sm">{{ Cart::initial() }} {{ config('settings.currency_symbol') }}</span> -->
-                                <!-- </div> -->
-                                <!-- <div class="w-full"> -->
-                                    <!-- <span class="text-gray-800 text-sm">- {{ Cart::discount() }} {{ config('settings.currency_symbol') }}</span> -->
-                                <!-- </div> -->
-                                <!-- <hr class="my-5"> -->
+                                <div class="w-full">
+                                    <span class="text-gray-800 text-sm">50 MAD</span>
+                                </div>
+                                <div class="w-full">
+                                    <span class="text-gray-800 text-sm">0 MAD</span>
+                                </div>
+                                <hr class="my-5">
                                 <div class="w-full">
                                     <span class="text-gray-800 font-bold">
-                                        {{ total }} MAD
+                                        {{ total + 50 }} MAD
                                     </span>
                                 </div>
                             </div>
@@ -105,13 +108,15 @@
 <script>
 import { mapGetters } from 'vuex'
 import CustomerDetailsForm from '../components/Checkout/CustomerDetailsForm.vue'
+import Coupon from '../components/Checkout/Coupon.vue'
 // import OrderCheckout from '../components/Checkout/OrderCheckout.vue';
 
 export default {
     name: 'Checkout',
 
     components: {
-        CustomerDetailsForm
+        CustomerDetailsForm,
+        Coupon
     },
 
     metaInfo () {
@@ -128,5 +133,14 @@ export default {
             }, 0)
         }
     },
+
+    methods: {
+        incrementQty(id) {
+            this.$store.dispatch('cart/incrementQty', {id})
+        },
+        decrementQty(id) {
+            this.$store.dispatch('cart/decrementQty', {id})
+        },
+    }
 }
 </script>

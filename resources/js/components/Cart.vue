@@ -1,124 +1,156 @@
 <template>
-    <TransitionRoot as="template" :show="open">
-        <Dialog as="div" class="fixed inset-0 overflow-hidden" @close="open = false">
+    <div as="template" v-if="open">
+        <div as="div" class="fixed inset-0 overflow-hidden">
             <div class="absolute inset-0 overflow-hidden">
-                <TransitionChild as="template" enter="ease-in-out duration-500" enter-from="opacity-0" enter-to="opacity-100" leave="ease-in-out duration-500" leave-from="opacity-100" leave-to="opacity-0">
-                <DialogOverlay class="absolute inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
-                </TransitionChild>
+                <transition as="template"
+                    enter-active-class="ease-in-out duration-500"
+                    enter-class="opacity-0"
+                    enter-to-class="opacity-100"
+                    leave-active-class="ease-in-out duration-500"
+                    leave-class="opacity-100"
+                    leave-to-class="opacity-0"
+                    appear>
+                    <div class="absolute inset-0 bg-primary-gray bg-opacity-50 transition-opacity"
+                     @click="toggleOpen(false)"></div>
+                </transition>
 
                 <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
-                <TransitionChild as="template" enter="transform transition ease-in-out duration-500 sm:duration-700" enter-from="translate-x-full" enter-to="translate-x-0" leave="transform transition ease-in-out duration-500 sm:duration-700" leave-from="translate-x-0" leave-to="translate-x-full">
-                    <div class="pointer-events-auto w-screen max-w-md">
-                    <div class="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
-                        <div class="flex-1 overflow-y-auto py-6 px-4 sm:px-6">
-                        <div class="flex items-start justify-between">
-                            <DialogTitle class="text-lg font-medium text-gray-900"> Shopping cart </DialogTitle>
-                            <div class="ml-3 flex h-7 items-center">
-                            <button type="button" class="-m-2 p-2 text-gray-400 hover:text-gray-500" @click="open = false">
-                                <span class="sr-only">Close panel</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" aria-hidden="true" viewBox="0 0 24 24">
-                                    <path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z"/>
-                                </svg>
-                            </button>
-                            </div>
-                        </div>
+                    <transition as="template"
+                        enter-active-class="transform transition ease-in-out duration-500 sm:duration-700"
+                        enter-class="translate-x-full"
+                        enter-to-class="translate-x-0"
+                        leave-active-class="transform transition ease-in-out duration-500 sm:duration-700"
+                        leave-class="translate-x-0"
+                        leave-to-class="translate-x-full"
+                        appear>
+                        <div class="pointer-events-auto w-screen max-w-md">
+                            <!-- overflow-y-scroll -->
+                            <div class="flex h-full flex-col bg-white shadow-xl">
+                                <div class="flex-1 overflow-y-auto py-6 px-4 sm:px-6">
+                                    <div class="flex items-start justify-between">
+                                        <h4 class="text-lg font-medium text-gray-900"> Shopping cart </h4>
+                                        <div class="ml-3 flex h-7 items-center">
+                                            <button type="button" class="-m-2 p-2 text-gray-400 hover:text-gray-500" @click="toggleOpen(false)">
+                                                <span class="sr-only">Close panel</span>
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" aria-hidden="true" viewBox="0 0 24 24">
+                                                    <path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z"/>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
 
-                        <div class="mt-8">
-                            <div class="flow-root">
-                            <ul role="list" class="-my-6 divide-y divide-gray-200">
-                                <li v-for="product in products" :key="product.id" class="flex py-6">
-                                <div class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
-                                    <img :src="product.imageSrc" :alt="product.imageAlt" class="h-full w-full object-cover object-center" />
+                                    <div class="mt-8">
+                                        <div class="flow-root">
+                                            <ul role="list" class="-my-6 divide-y divide-gray-200">
+                                                <li v-for="product in products" :key="product.id" class="flex py-6">
+                                                    <div class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
+                                                        <img :src="product.image" :alt="product.name" class="h-full w-full object-cover object-center" />
+                                                    </div>
+
+                                                    <div class="ml-4 flex flex-1 flex-col">
+                                                        <div>
+                                                            <div class="flex justify-between text-base font-medium text-gray-900">
+                                                                <h3>
+                                                                    {{ product.name }}
+                                                                </h3>
+                                                                <p class="ml-4">{{ product.price }} MAD</p>
+                                                            </div>
+                                                            <p v-if="product.option" class="mt-1 text-sm text-gray-500">
+                                                                {{ product.option }}
+                                                            </p>
+                                                        </div>
+                                                        <div class="flex flex-1 items-end justify-between text-sm">
+                                                            <div class="flex items-center mt-2">
+                                                                <button @click="decrementQty(product.id)"
+                                                                    class="text-gray-500 hover:text-primary-dark focus:outline-none focus:text-gray-600">
+                                                                    <svg class="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                                                </button>
+                                                                <span class="text-gray-500 mx-2">{{ product.quantity }}</span>
+                                                                <button @click="incrementQty(product.id)"
+                                                                    class="text-gray-500 hover:text-primary-dark focus:outline-none focus:text-gray-600">
+                                                                    <svg class="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                                                </button>
+                                                            </div>
+                                                            <!-- <div class="flex">
+                                                                <button type="button" class="font-medium text-primary-dark hover:text-primary-default">Remove</button>
+                                                            </div> -->
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                            <p v-show="!products.length" class="text-gray-600">Your cart is empty!</p>
+                                        </div>
+                                    </div>
                                 </div>
 
-                                <div class="ml-4 flex flex-1 flex-col">
-                                    <div>
+                                <div class="border-t border-gray-200 py-6 px-4 sm:px-6">
+                                    <div class="flex justify-between text-sm text-gray-600 mb-2">
+                                        <p>Livraison</p>
+                                        <p>50 MAD</p>
+                                    </div>
                                     <div class="flex justify-between text-base font-medium text-gray-900">
-                                        <h3>
-                                        <a :href="product.href"> {{ product.name }} </a>
-                                        </h3>
-                                        <p class="ml-4">{{ product.price }}</p>
+                                        <p>Subtotal</p>
+                                        <p>{{total + 50}} MAD</p>
                                     </div>
-                                    <p class="mt-1 text-sm text-gray-500">{{ product.color }}</p>
+                                    <!-- <p class="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p> -->
+                                    <div class="mt-6">
+                                        <button @click="toCheckout" type="button" class="w-full flex items-center justify-center rounded-md border border-transparent bg-primary-dark px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-primary-default">
+                                            Checkout
+                                        </button>
                                     </div>
-                                    <div class="flex flex-1 items-end justify-between text-sm">
-                                    <p class="text-gray-500">Qty {{ product.quantity }}</p>
-
-                                    <div class="flex">
-                                        <button type="button" class="font-medium text-indigo-600 hover:text-indigo-500">Remove</button>
-                                    </div>
+                                    <div class="mt-6 flex justify-center text-center text-sm text-gray-500">
+                                        <p>
+                                        or <button type="button" @click="continueShopping" class="font-medium text-primary-dark hover:text-primary-default">Continue Shopping<span aria-hidden="true"> &rarr;</span></button>
+                                        </p>
                                     </div>
                                 </div>
-                                </li>
-                            </ul>
                             </div>
                         </div>
-                        </div>
-
-                        <div class="border-t border-gray-200 py-6 px-4 sm:px-6">
-                        <div class="flex justify-between text-base font-medium text-gray-900">
-                            <p>Subtotal</p>
-                            <p>$262.00</p>
-                        </div>
-                        <p class="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
-                        <div class="mt-6">
-                            <a href="#" class="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Checkout</a>
-                        </div>
-                        <div class="mt-6 flex justify-center text-center text-sm text-gray-500">
-                            <p>
-                            or <button type="button" class="font-medium text-indigo-600 hover:text-indigo-500" @click="open = false">Continue Shopping<span aria-hidden="true"> &rarr;</span></button>
-                            </p>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                </TransitionChild>
+                    </transition>
                 </div>
             </div>
-        </Dialog>
-    </TransitionRoot>
+        </div>
+    </div>
 </template>
 
 <script>
-import { Dialog, DialogOverlay, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
+import { mapGetters } from 'vuex'
 
 export default {
     name: "Cart",
 
-    components: {
-        Dialog,
-        DialogOverlay,
-        DialogTitle,
-        TransitionChild,
-        TransitionRoot,
+    computed: {
+        ...mapGetters({
+            products: 'cart/cart',
+            open: 'cart/cartOpen'
+        }),
+        total () {
+            return this.products.reduce((total, p) => {
+                return total + p.price * p.quantity
+            }, 0)
+        }
     },
 
-    data() {
-        return {
-            open: true,
-            products: [
-                {
-                    id: 1,
-                    name: 'Throwback Hip Bag',
-                    href: '#',
-                    color: 'Salmon',
-                    price: '$90.00',
-                    quantity: 1,
-                    imageSrc: 'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg',
-                    imageAlt: 'Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt.',
-                },
-                {
-                    id: 2,
-                    name: 'Medium Stuff Satchel',
-                    href: '#',
-                    color: 'Blue',
-                    price: '$32.00',
-                    quantity: 1,
-                    imageSrc: 'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg',
-                    imageAlt:
-                    'Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch.',
-                },
-            ]
+    methods: {
+        toggleOpen(val) {
+            // this.open = val
+            this.$store.dispatch('cart/toggleCart')
+        },
+        incrementQty(id) {
+            this.$store.dispatch('cart/incrementQty', {id})
+        },
+        decrementQty(id) {
+            this.$store.dispatch('cart/decrementQty', {id})
+        },
+        toCheckout() {
+            this.$store.dispatch('cart/toggleCart')
+            this.$router.push({ name: 'checkout' })
+        },
+        continueShopping() {
+            if(this.$route.name != 'products')
+                this.$router.push({ name: 'products' })
+            
+            this.$store.dispatch('cart/toggleCart')
         }
     }
 }

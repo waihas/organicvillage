@@ -44,4 +44,22 @@ class OrderController extends Controller
             'orderId' => $ord_num 
         ],201);
     }
+
+    public function addCoupon(Request $request)
+    {
+        $request->validate([
+            'coupon' => 'required|string',
+        ]);
+
+        if (strtoupper($request->coupon) == "WELCOME") {
+            return response()->json([
+                'success' => true,
+                'message' => "Coupon has been applied!",
+            ],200);
+        }
+        return response()->json([
+            'success' => false,
+            'message' => "Coupon is not valid!",
+        ]);
+    }
 }

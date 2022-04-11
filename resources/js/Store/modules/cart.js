@@ -11,6 +11,7 @@ import * as types from '../mutation-types'
 
 // initial state
 export const state = {
+    cartOpen: false,
     added: [],
     gammes: [
         {
@@ -228,6 +229,7 @@ export const state = {
 
 // getters
 export const getters = {
+    cartOpen: state => state.cartOpen,
     allProducts: state => state.products, // would need action/mutation if data fetched async
     allGammes: state => state.gammes, // would need action/mutation if data fetched async
     getNumberOfProducts: state => (state.products) ? state.products.length : 0,
@@ -236,6 +238,7 @@ export const getters = {
         return state.added.map(({ id, price, option, quantity }) => {
             const product = state.products.find(p => p.id === id) || state.gammes.find(p => p.id === id)
             return {
+                id: product.id,
                 name: product.name,
                 image: product.image,
                 description: product.description,
@@ -249,6 +252,9 @@ export const getters = {
 
 // mutations
 export const mutations = {
+    [types.TOGGLE_CART] (state) {
+        state.cartOpen = !state.cartOpen
+    },
     [types.ADD_TO_CART] (state, { id, price, option }) {
         const record = state.added.find(p => p.id === id)
         if (!record) {
@@ -282,17 +288,46 @@ export const mutations = {
             //     record.quantity++
             // }
         }
-    }
+    },
+    [types.INCREMENT_QTY] (state, { id }) {
+        const record = state.added.find(p => p.id === id)
+        if (record) {
+            record.quantity++
+        }
+    },
+    [types.DECREMENT_QTY] (state, { id }) {
+        const record = state.added.find(p => p.id === id)
+        if (record) {
+            if(record.quantity < 2)
+                state.added.splice(state.added.indexOf(record), 1)
+            else
+                record.quantity--
+        }
+    },
 }
 
 // actions
 export const actions = {
-    addToCart({ commit }, payload){
+    toggleCart ({ commit, state }) {
+        commit(types.TOGGLE_CART)
+    },
+    addToCart({ commit }, payload) {
         console.log('received data: ' + payload.productId + ' ' + payload.price +' and ' +  payload.option)
         commit(types.ADD_TO_CART, {
             id: payload.productId,
             price: payload.price,
             option: payload.option
+        })
+        commit(types.TOGGLE_CART)
+    },
+    incrementQty({ commit }, {id}) {
+        commit(types.INCREMENT_QTY, {
+            id: id,
+        })
+    },
+    decrementQty({ commit }, {id}) {
+        commit(types.DECREMENT_QTY, {
+            id: id,
         })
     }
 }
