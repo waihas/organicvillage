@@ -101,7 +101,7 @@ export default {
           total: total,
         }
 
-        this.form['extra'] = cart;
+        this.form.setData(cart);
 
         const { data } = await this.form.post('/api/placeOrder')
 
