@@ -69,6 +69,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import Form from 'vform'
 
 export default {
@@ -83,21 +84,27 @@ export default {
       }),
     }),
 
+    computed: {
+        ...mapGetters({
+            products: 'cart/cart'
+        }),
+    },
+
     methods: {
       async placeorder() {
         // Submit the form.
-        const { data } = await this.form.post('/api/placeOrder')
 
-        // Save the token.
-        // this.$store.dispatch('auth/saveToken', {
-        //   token: data.token,
-        //   remember: this.remember
-        // })
+        let total = this.products.reduce((total, p) => {
+                return total + p.price * p.quantity
+            }, 0);
 
+        let cart = {
+          products: this.products,
+          total: total,
+        }
 
-        // Fetch the user.
-        // await this.$store.dispatch('auth/fetchUser')
-
+        const { data } = await this.form.post('/api/placeOrder', cart)
+        
         // empty cart
         this.$router.push({ name: 'checkout.success', params: { orderId: data.orderId } })
       }

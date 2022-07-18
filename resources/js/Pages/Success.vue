@@ -42,11 +42,16 @@
 export default {
     name: "Success",
 
+
     metaInfo () {
         return { title: 'Order successfully' }
     },
 
-    props: ['orderId']
+    computed: {
+        orderId() {
+            return this.$route.params.orderId;
+        }
+    },
     
     // components: { OrderSuccess },
 }

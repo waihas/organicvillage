@@ -19,6 +19,8 @@ class OrderController extends Controller
             'terms.accepted' => 'The Terms & Conditions must be accepted.'
         ]);
 
+        dd($request);
+
         $ord_num = random_int(100000, 999999);
         $values = [
             $ord_num, 
@@ -29,8 +31,6 @@ class OrderController extends Controller
             '2344 MAD', 
             date('Y-m-d H:i:s')
         ];
-
-        
 
         if ($request->city == "agadir") {
             $googleSheet->saveDataToSheet($values, 'Agadir');
