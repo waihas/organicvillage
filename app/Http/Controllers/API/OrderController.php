@@ -11,7 +11,7 @@ class OrderController extends Controller
     public function placeOrder(Request $request, GoogleSheets $googleSheet)
     {
         dd($request);
-        
+
         $request->validate([
             'name' => 'required|string',
             'phone' => 'required|numeric|digits:10',
@@ -20,6 +20,8 @@ class OrderController extends Controller
         ],[
             'terms.accepted' => 'The Terms & Conditions must be accepted.'
         ]);
+
+        // total is without 50 dh of delivery
 
         $ord_num = random_int(100000, 999999);
         $values = [

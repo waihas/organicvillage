@@ -92,6 +92,7 @@ export default {
 
     methods: {
       async placeorder() {
+
         let total = this.products.reduce((total, p) => {
                 return total + p.price * p.quantity
             }, 0);
@@ -101,7 +102,7 @@ export default {
           total: total,
         }
 
-        this.form.setData(cart);
+        this.form.update(cart);
 
         const { data } = await this.form.post('/api/placeOrder')
 
