@@ -9,7 +9,6 @@ import * as types from '../mutation-types'
 //   mutations
 // })
 
-// initial state
 export const state = {
     cartOpen: false,
     added: [],
@@ -66,11 +65,23 @@ export const state = {
             name: 'CHEBBAKIA HOME MADE',
             description: "",
             image: 'https://picsum.photos/seed/picsum/200/300',
-            prices: {
-                "250 G": 80,
-                "500 G": 100,
-                "1 KG": 120,
-            },
+            prices: [
+                {
+                    id: 'cee669520c-250-G',
+                    weight: "250 G",
+                    price: 80,
+                },
+                {
+                    id: 'cee669520c-500-G',
+                    weight: "500 G",
+                    price: 100,
+                },
+                {
+                    id: 'cee669520c-1-KG',
+                    weight: "1 KG",
+                    price: 120,
+                }
+            ],
             price: 0
         },
         {
@@ -78,11 +89,23 @@ export const state = {
             name: 'SELLOU HOME MADE',
             description: "",
             image: 'https://picsum.photos/seed/picsum/200/300',
-            prices: {
-                "250 G": 80,
-                "500 G": 100,
-                "1 KG": 120,
-            },
+            prices: [
+                {
+                    id: 'bca194454f-250-G',
+                    weight: "250 G",
+                    price: 80,
+                },
+                {
+                    id: 'bca194454f-500-G',
+                    weight: "500 G",
+                    price: 100,
+                },
+                {
+                    id: 'bca194454f-1-KG',
+                    weight: "1 KG",
+                    price: 120,
+                }
+            ],
             price: 0
         },
         {
@@ -90,11 +113,23 @@ export const state = {
             name: 'FEKKAS HOME MADE',
             description: "",
             image: 'https://picsum.photos/seed/picsum/200/300',
-            prices: {
-                "250 G": 80,
-                "500 G": 100,
-                "1 KG": 120,
-            },
+            prices: [
+                {
+                    id: '72702ace6b8e-250-G',
+                    weight: "250 G",
+                    price: 80,
+                },
+                {
+                    id: '72702ace6b8e-500-G',
+                    weight: "500 G",
+                    price: 100,
+                },
+                {
+                    id: '72702ace6b8e-1-KG',
+                    weight: "1 KG",
+                    price: 120,
+                }
+            ],
             price: 0
         },
         {
@@ -102,11 +137,23 @@ export const state = {
             name: 'ORIGINAL AMLOU',
             description: "(Huile d'argan-Miel-Amonde)",
             image: 'https://picsum.photos/seed/picsum/200/300',
-            prices: {
-                "250 G": 80,
-                "500 G": 100,
-                "1 KG": 120,
-            },
+            prices: [
+                {
+                    id: 'sdfllfo-e32488e-250-G',
+                    weight: "250 G",
+                    price: 80,
+                },
+                {
+                    id: 'sdfllfo-e32488e-500-G',
+                    weight: "500 G",
+                    price: 100,
+                },
+                {
+                    id: 'sdfllfo-e32488e-1-KG',
+                    weight: "1 KG",
+                    price: 120,
+                }
+            ],
             price: 0
         },
         {
@@ -114,11 +161,23 @@ export const state = {
             name: "HUILE D'ARGANE",
             description: "TORRIFIEE DE REGION IGHREM-TIZNIT",
             image: 'https://picsum.photos/seed/picsum/200/300',
-            prices: {
-                "250 G": 80,
-                "500 G": 100,
-                "1 KG": 120,
-            },
+            prices: [
+                {
+                    id: '7poze-rj2138e-250-G',
+                    weight: "250 G",
+                    price: 80,
+                },
+                {
+                    id: '7poze-rj2138e-500-G',
+                    weight: "500 G",
+                    price: 100,
+                },
+                {
+                    id: '7poze-rj2138e-1-KG',
+                    weight: "1 KG",
+                    price: 120,
+                }
+            ],
             price: 0
         },
         {
@@ -126,12 +185,28 @@ export const state = {
             name: "HUILES D'OLIVES BIO",
             description: "DE REGION IGHREM-TIZNIT",
             image: 'https://picsum.photos/seed/picsum/200/300',
-            prices: {
-                "100 ML": 80,
-                "250 ML": 100,
-                "500 ML": 110,
-                "1 L": 120,
-            },
+            prices: [
+                {
+                    id: '7sdfqs2132-b8e-100-ML',
+                    weight: "100 ML",
+                    price: 80,
+                },
+                {
+                    id: '7sdfqs2132-b8e-250-ML',
+                    weight: "250 ML",
+                    price: 100,
+                },
+                {
+                    id: '7sdfqs2132-b8e-500-ML',
+                    weight: "500 ML",
+                    price: 110,
+                },
+                {
+                    id: '7sdfqs2132-b8e-1-L',
+                    weight: "1 L",
+                    price: 120,
+                }
+            ],
             price: 0
         },
         {
@@ -139,9 +214,13 @@ export const state = {
             name: "OLIVES ROUGE",
             description: "DE REGION IGHREM-TIZNIT",
             image: 'https://picsum.photos/seed/picsum/200/300',
-            prices: {
-                "X gramme": 80,
-            },
+            prices: [
+                {
+                    id: '7szreg394-e6b8e-X-gramme',
+                    weight: "X gramme",
+                    price: 80,
+                }
+            ],
             price: 0
         },
         {
@@ -149,12 +228,28 @@ export const state = {
             name: "OLIVES NOIRS CONSERVEES",
             description: "(huile d'olives) DE REGION IGHREM-TIZNIT",
             image: 'https://picsum.photos/seed/picsum/200/300',
-            prices: {
-                "100 ML": 80,
-                "250 ML": 100,
-                "500 ML": 110,
-                "1 L": 120,
-            },
+            prices: [
+                {
+                    id: 'sdf1230-fdapeo-100-ML',
+                    weight: "100 ML",
+                    price: 80,
+                },
+                {
+                    id: 'sdf1230-fdapeo-250-ML',
+                    weight: "250 ML",
+                    price: 100,
+                },
+                {
+                    id: 'sdf1230-fdapeo-500-ML',
+                    weight: "500 ML",
+                    price: 110,
+                },
+                {
+                    id: 'sdf1230-fdapeo-1-L',
+                    weight: "1 L",
+                    price: 120,
+                }
+            ],
             price: 0
         },
         {
@@ -162,9 +257,13 @@ export const state = {
             name: "CAPRES BIO",
             description: "",
             image: 'https://picsum.photos/seed/picsum/200/300',
-            prices: {
-                "X gramme": 80,
-            },
+            prices: [
+                {
+                    id: '7s2sdf-fqsdf8e-X-gramme',
+                    weight: "X gramme",
+                    price: 80,
+                }
+            ],
             price: 0
         },
         {
@@ -172,9 +271,13 @@ export const state = {
             name: "SAFFRON",
             description: "DE REGION TALIOUINE",
             image: 'https://picsum.photos/seed/picsum/200/300',
-            prices: {
-                "Gramme": 80,
-            },
+            prices: [
+                {
+                    id: 'ploqsd123-ace6b8e-Gramme',
+                    weight: "Gramme",
+                    price: 80,
+                }
+            ],
             price: 0
         },
         {
@@ -182,7 +285,7 @@ export const state = {
             name: "GHASSOUL HAMMAM",
             description: "A BASE DES HERBES(xxG)",
             image: 'https://picsum.photos/seed/picsum/200/300',
-            prices: {},
+            prices: [],
             price: 595
         },
         {
@@ -190,14 +293,38 @@ export const state = {
             name: "SAVON NOIR AVEC 6 SAVEURS",
             description: "SAVEURS -PAR CHOIX-",
             image: 'https://picsum.photos/seed/picsum/200/300',
-            prices: {
-                "Argan": 80,
-                "Rose": 80,
-                "Lavende": 80,
-                "Fleur d'Oranger": 80,
-                "Menthe": 80,
-                "Armoise": 80,
-            },
+            prices: [
+                {
+                    id: 'dsdf-02acsd-fe6b8e-Argan',
+                    weight: "Argan",
+                    price: 80,
+                },
+                {
+                    id: 'dsdf-02acsd-fe6b8e-Rose',
+                    weight: "Rose",
+                    price: 80,
+                },
+                {
+                    id: 'dsdf-02acsd-fe6b8e-Lavende',
+                    weight: "Lavende",
+                    price: 80,
+                },
+                {
+                    id: 'dsdf-02acsd-fe6b8e-Fleur-Oranger',
+                    weight: "Fleur d'Oranger",
+                    price: 80,
+                },
+                {
+                    id: 'dsdf-02acsd-fe6b8e-Menthe',
+                    weight: "Menthe",
+                    price: 80,
+                },
+                {
+                    id: 'dsdf-02acsd-fe6b8e-Armoise',
+                    weight: "Armoise",
+                    price: 80,
+                }
+            ],
             price: 0
         },
         {
@@ -205,7 +332,7 @@ export const state = {
             name: "SOFT ROSE",
             description: "EAU DE ROSE AVEC SAFFRON(100ml)",
             image: 'https://picsum.photos/seed/picsum/200/300',
-            prices: {},
+            prices: [],
             price: 595
         },
         {
@@ -213,7 +340,7 @@ export const state = {
             name: "ARGAN OIL COSMETIQUE (30ml)",
             description: "",
             image: 'https://picsum.photos/seed/picsum/200/300',
-            prices: {},
+            prices: [],
             price: 900
         },
         {
@@ -221,13 +348,12 @@ export const state = {
             name: "HUILE PRECIEUSE (100 ml)",
             description: "",
             image: 'https://picsum.photos/seed/picsum/200/300',
-            prices: {},
+            prices: [],
             price: 700
         }
     ]
 }
 
-// getters
 export const getters = {
     cartOpen: state => state.cartOpen,
     allProducts: state => state.products, // would need action/mutation if data fetched async
@@ -235,7 +361,7 @@ export const getters = {
     getNumberOfProducts: state => (state.products) ? state.products.length : 0,
     getNumberOfGammes: state => (state.gammes) ? state.gammes.length : 0,
     cart: state => {
-        return state.added.map(({ id, price, option, quantity }) => {
+        return state.added.map(({ id, price, option_id, option, quantity }) => {
             const product = state.products.find(p => p.id === id) || state.gammes.find(p => p.id === id)
             return {
                 id: product.id,
@@ -243,6 +369,7 @@ export const getters = {
                 image: product.image,
                 description: product.description,
                 price,
+                option_id,
                 option,
                 quantity
             }
@@ -250,53 +377,32 @@ export const getters = {
     },
 }
 
-// mutations
 export const mutations = {
     [types.TOGGLE_CART] (state) {
         state.cartOpen = !state.cartOpen
     },
-    [types.ADD_TO_CART] (state, { id, price, option }) {
-        const record = state.added.find(p => p.id === id)
+    [types.ADD_TO_CART] (state, { id, price, option_id, option }) {
+        const record = state.added.find(p => (p.id === id && p.option_id == option_id))
         if (!record) {
             state.added.push({
                 id,
                 price,
+                option_id,
                 option,
                 quantity: 1
             })
         } else {
-            // here check if option is the same
-            // then increase qty
-            // otherwise new push
-            // console.log('record' + JSON.stringify(record))
-            // console.log("sqdfqdsf" + Object.keys(record.prices));
-            // if(record.price == 0) {
-                console.log(record.option +"=="+ option)
-
-                if(record.option == option)
-                    record.quantity++
-                else {
-                    state.added.push({
-                        id,
-                        price,
-                        option,
-                        quantity: 1
-                    })
-                }
-            // }
-            // else {
-            //     record.quantity++
-            // }
+            record.quantity++
         }
     },
-    [types.INCREMENT_QTY] (state, { id }) {
-        const record = state.added.find(p => p.id === id)
+    [types.INCREMENT_QTY] (state, { id, option_id }) {
+        const record = state.added.find(p => (p.id === id && p.option_id == option_id))
         if (record) {
             record.quantity++
         }
     },
-    [types.DECREMENT_QTY] (state, { id }) {
-        const record = state.added.find(p => p.id === id)
+    [types.DECREMENT_QTY] (state, { id, option_id }) {
+        const record = state.added.find(p => (p.id === id && p.option_id == option_id))
         if (record) {
             if(record.quantity < 2)
                 state.added.splice(state.added.indexOf(record), 1)
@@ -306,28 +412,29 @@ export const mutations = {
     },
 }
 
-// actions
 export const actions = {
     toggleCart ({ commit, state }) {
         commit(types.TOGGLE_CART)
     },
     addToCart({ commit }, payload) {
-        console.log('received data: ' + payload.productId + ' ' + payload.price +' and ' +  payload.option)
         commit(types.ADD_TO_CART, {
             id: payload.productId,
             price: payload.price,
-            option: payload.option
+            option_id: payload.optionId,
+            option: payload.option,
         })
         commit(types.TOGGLE_CART)
     },
-    incrementQty({ commit }, {id}) {
+    incrementQty({ commit }, {id, optionId}) {
         commit(types.INCREMENT_QTY, {
             id: id,
+            option_id: optionId,
         })
     },
-    decrementQty({ commit }, {id}) {
+    decrementQty({ commit }, {id, optionId}) {
         commit(types.DECREMENT_QTY, {
             id: id,
+            option_id: optionId,
         })
     }
 }

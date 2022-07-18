@@ -42,7 +42,7 @@
                                     <div class="mt-8">
                                         <div class="flow-root">
                                             <ul role="list" class="-my-6 divide-y divide-gray-200">
-                                                <li v-for="product in products" :key="product.id" class="flex py-6">
+                                                <li v-for="(product, idx) in products" :key="idx" class="flex py-6">
                                                     <div class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                                                         <img :src="product.image" :alt="product.name" class="h-full w-full object-cover object-center" />
                                                     </div>
@@ -53,7 +53,7 @@
                                                                 <h3>
                                                                     {{ product.name }}
                                                                 </h3>
-                                                                <p class="ml-4">{{ product.price }} MAD</p>
+                                                                <p class="ml-4 whitespace-nowrap">{{ product.price }} MAD</p>
                                                             </div>
                                                             <p v-if="product.option" class="mt-1 text-sm text-gray-500">
                                                                 {{ product.option }}
@@ -61,12 +61,12 @@
                                                         </div>
                                                         <div class="flex flex-1 items-end justify-between text-sm">
                                                             <div class="flex items-center mt-2">
-                                                                <button @click="decrementQty(product.id)"
+                                                                <button @click="decrementQty(product.id, product.option_id)"
                                                                     class="text-gray-500 hover:text-primary-dark focus:outline-none focus:text-gray-600">
                                                                     <svg class="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                                                                 </button>
                                                                 <span class="text-gray-500 mx-2">{{ product.quantity }}</span>
-                                                                <button @click="incrementQty(product.id)"
+                                                                <button @click="incrementQty(product.id, product.option_id)"
                                                                     class="text-gray-500 hover:text-primary-dark focus:outline-none focus:text-gray-600">
                                                                     <svg class="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                                                                 </button>
@@ -98,11 +98,11 @@
                                             Checkout
                                         </button>
                                     </div>
-                                    <div class="mt-6 flex justify-center text-center text-sm text-gray-500">
+                                    <!-- <div class="mt-6 flex justify-center text-center text-sm text-gray-500">
                                         <p>
                                         or <button type="button" @click="continueShopping" class="font-medium text-primary-dark hover:text-primary-default">Continue Shopping<span aria-hidden="true"> &rarr;</span></button>
                                         </p>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -136,11 +136,11 @@ export default {
             // this.open = val
             this.$store.dispatch('cart/toggleCart')
         },
-        incrementQty(id) {
-            this.$store.dispatch('cart/incrementQty', {id})
+        incrementQty(id, optionId) {
+            this.$store.dispatch('cart/incrementQty', {id, optionId})
         },
-        decrementQty(id) {
-            this.$store.dispatch('cart/decrementQty', {id})
+        decrementQty(id, optionId) {
+            this.$store.dispatch('cart/decrementQty', {id, optionId})
         },
         toCheckout() {
             this.$store.dispatch('cart/toggleCart')

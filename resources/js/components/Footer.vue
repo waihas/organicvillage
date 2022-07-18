@@ -8,7 +8,7 @@
                 </router-link>
             </div>
             <div class="flex-grow flex flex-wrap md:pr-20 -mb-10 md:text-left text-center order-first">
-                <div class="md:w-3/4 w-full px-4">
+                <div class="md:w-2/4 w-full px-4">
                     <h2 class="title-font font-medium text-primary-default tracking-widest uppercase text-sm mb-3">Policies</h2>
                     <nav class="list-none mb-10">
                         <li>
@@ -22,6 +22,20 @@
                         </li>
                         <li>
                             <router-link :to="{name: 'legal.delivery'}" class="text-gray-200 hover:text-primary-dark cursor-pointer">Livraison et remboursement</router-link>
+                        </li>
+                    </nav>
+                </div>
+                <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+                    <h2 class="title-font font-medium text-primary-default tracking-widest text-sm mb-3">Pages</h2>
+                    <nav class="list-none mb-10">
+                        <li>
+                            <router-link :to="{name: 'home'}" class="text-gray-300 hover:text-primary-dark cursor-pointer">Accueil</router-link>
+                        </li>
+                        <li>
+                            <router-link :to="{name: 'products'}" class="text-gray-300 hover:text-primary-dark cursor-pointer">Products</router-link>
+                        </li>
+                        <li>
+                            <router-link :to="{name: 'checkout'}" class="text-gray-300 hover:text-primary-dark cursor-pointer">Checkout</router-link>
                         </li>
                     </nav>
                 </div>

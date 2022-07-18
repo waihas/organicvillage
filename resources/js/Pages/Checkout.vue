@@ -10,7 +10,7 @@
         </div>
 
             <div class="flex flex-wrap justify-between mt-5 items-start">
-                <div class="w-full mb-6 lg:mb-0 lg:w-2/3 px-4 flex flex-col">
+                <div class="order-2 md:order-1 w-full mb-6 lg:mb-0 lg:w-2/3 px-4 flex flex-col">
                     <div class="flex flex-col border rounded-lg">
                         <div class="mb-4 bg-white overflow-hidden rounded-t-lg">
                             <div class="px-6">
@@ -22,7 +22,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="w-full mb-6 lg:mb-0 lg:w-1/3 px-4 lg:sticky" style="top:1.25rem;">
+                <div class="order-1 md:order-2 w-full mb-6 lg:mb-0 lg:w-1/3 px-4 lg:sticky" style="top:1.25rem;">
                     <div class="flex-grow bg-white border border-grey-lighter overflow-hidden rounded-lg">
                         <div class="px-6 mb-2">
                             <p class="text-gray-800 py-4 uppercase font-bold text-2xl">Your Order</p>
@@ -34,7 +34,7 @@
                         </div>
 
                         <div v-show="products.length" class="px-6 mb-3">
-                            <div v-for="p in products" :key="p.id" class="flex justify-between mt-6">
+                            <div v-for="(p, idx) in products" :key="idx" class="flex justify-between mt-6">
                                 <div class="flex">
                                     <img class="h-20 w-20 object-cover rounded"
                                         :src="p.image"
@@ -60,7 +60,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <span class="text-gray-900">{{ p.price }} DH</span>
+                                <span class="text-gray-900 whitespace-nowrap">{{ p.price }} DH</span>
                             </div>
                         </div>
 

@@ -38,6 +38,7 @@
                     </li>
                 </ul>
             </div>
+            <!-- absolute inset-x-0 bottom-0  -->
             <button type="button" @click="addItemToCart()"
                 class="w-full text-sm md:text-base block bg-primary-default py-2 px-2 text-white text-center md:rounded shadow-lg uppercase font-light mt-6 hover:bg-primary hover:text-white duration-300 ease-in-out">
                 Add to cart
@@ -62,7 +63,8 @@ export default {
             var payload = {
                 'productId': this.gamme.id,
                 'price': this.gamme.price,
-                'option': ''
+                'optionId': '',
+                'option': '',
             }
             this.addToCart(payload)
         }

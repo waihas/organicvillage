@@ -3,19 +3,19 @@
     <section class="flex flex-col justify-center p-2 md:p-8 mb-10 bg-white">
         <nav class="w-full py-4">
             <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-3">
-                <h3 class="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-700 text-xl " href="#">
+                <h3 class="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-700 text-xl">
                     Nos gammmes
                 </h3>
             </div>
         </nav>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-8 pt-8 max-w-7xl mx-auto">
-              <div v-for="gamme in gammes" :key="gamme.id">
+            <div v-for="gamme in gammes" :key="gamme.id">
                 <gamme-product :gamme="gamme"></gamme-product>
-              </div>
+            </div>
         </div>
         <nav class="w-full py-4 mt-8">
             <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-3">
-                <h3 class="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-700 text-xl " href="#">
+                <h3 class="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-700 text-xl">
                     Nos produits
                 </h3>
             </div>
