@@ -1920,7 +1920,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames based on template
-/******/ 			return "dist/js/" + {"resources_js_pages_checkout_vue":"474e1b4e8c0acc00","resources_js_pages_errors_404_vue":"50eb920c39da31cb","resources_js_pages_home_vue":"7c42b79a985cb764","resources_js_pages_legal_delivery_vue":"0ef1774cf35d179d","resources_js_pages_legal_privacy_vue":"27dc4288d912908f","resources_js_pages_legal_terms_vue":"ca7bce5cdc77f3d6","resources_js_pages_legal_web_vue":"5d90f31752948fc1","resources_js_pages_products_vue":"bb1709aa975c0c08","resources_js_pages_success_vue":"aeb201a358ae31af","resources_js_lang_en_json":"e4004c733b118a5c","resources_js_lang_fr_json":"21f2ca6e13c17a56"}[chunkId] + ".js";
+/******/ 			return "dist/js/" + {"resources_js_pages_checkout_vue":"0c7b42eb9a268b11","resources_js_pages_errors_404_vue":"50eb920c39da31cb","resources_js_pages_home_vue":"7c42b79a985cb764","resources_js_pages_legal_delivery_vue":"0ef1774cf35d179d","resources_js_pages_legal_privacy_vue":"27dc4288d912908f","resources_js_pages_legal_terms_vue":"ca7bce5cdc77f3d6","resources_js_pages_legal_web_vue":"5d90f31752948fc1","resources_js_pages_products_vue":"bb1709aa975c0c08","resources_js_pages_success_vue":"aeb201a358ae31af","resources_js_lang_en_json":"e4004c733b118a5c","resources_js_lang_fr_json":"21f2ca6e13c17a56"}[chunkId] + ".js";
 /******/ 		};
 /******/ 	})();
 /******/ 	

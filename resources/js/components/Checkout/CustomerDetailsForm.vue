@@ -92,8 +92,6 @@ export default {
 
     methods: {
       async placeorder() {
-        // Submit the form.
-
         let total = this.products.reduce((total, p) => {
                 return total + p.price * p.quantity
             }, 0);
@@ -103,8 +101,10 @@ export default {
           total: total,
         }
 
-        const { data } = await this.form.post('/api/placeOrder', cart)
-        
+        this.form['extra'] = cart;
+
+        const { data } = await this.form.post('/api/placeOrder')
+
         // empty cart
         this.$router.push({ name: 'checkout.success', params: { orderId: data.orderId } })
       }
