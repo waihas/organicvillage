@@ -10,8 +10,6 @@ class OrderController extends Controller
 {
     public function placeOrder(Request $request, GoogleSheets $googleSheet)
     {
-        dd($request);
-
         $request->validate([
             'name' => 'required|string',
             'phone' => 'required|numeric|digits:10',
@@ -22,7 +20,6 @@ class OrderController extends Controller
         ]);
 
         // total is without 50 dh of delivery
-
 
         // [
         //     "name" => "sdfqsf"
