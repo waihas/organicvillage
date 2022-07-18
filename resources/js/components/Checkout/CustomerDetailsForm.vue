@@ -31,8 +31,30 @@
               <div class="flex flex-col w-full">
                 <select v-model="form.city" name="city" class="w-full mb-2 bg-gray-200 appearance-none border-2 border-gray-200 rounded py-2 px-4 text-gray-800 leading-tight focus:outline-none focus:bg-white focus:border-primary-default"
                   :class="{ 'border-red-500': form.errors.has('city') }">
-                    <option value="agadir">Agadir</option>
-                    <option value="autres">Autres</option>
+                    <option value="Agadir">Agadir</option>
+                    <option value="Beni Mellal">Beni Mellal</option>
+                    <option value="Berkane">Berkane</option>
+                    <option value="Casablanca">Casablanca</option>
+                    <option value="El Jadida">El Jadida</option>
+                    <option value="Essaouira">Essaouira</option>
+                    <option value="Fès">Fès</option>
+                    <option value="Kenitra">Kenitra</option>
+                    <option value="Khouribga">Khouribga</option>
+                    <option value="M'diq">M'diq</option>
+                    <option value="Marrakech">Marrakech</option>
+                    <option value="Meknes">Meknes</option>
+                    <option value="Mohammedia">Mohammedia</option>
+                    <option value="Ouarzazate">Ouarzazate</option>
+                    <option value="Oujda">Oujda</option>
+                    <option value="Rabat">Rabat</option>
+                    <option value="Safi">Safi</option>
+                    <option value="Salé">Salé</option>
+                    <option value="Settat">Settat</option>
+                    <option value="Tanger">Tanger</option>
+                    <option value="Taroudant">Taroudant</option>
+                    <option value="Temara">Temara</option>
+                    <option value="Tetouan">Tetouan</option>
+                    <option value="Autre">Autre</option>
                 </select>
                 <has-error class="mt-2 text-sm text-red-600" :form="form" field="city" />
               </div>
@@ -79,8 +101,8 @@ export default {
       form: new Form({
         name: '',
         phone: '',
-        city: 'agadir',
-        terms: false
+        city: 'Agadir',
+        terms: true
       }),
     }),
 
@@ -106,7 +128,7 @@ export default {
 
         const { data } = await this.form.post('/api/placeOrder')
 
-        // empty cart
+        this.$store.dispatch('cart/clearCart');
         this.$router.push({ name: 'checkout.success', params: { orderId: data.orderId } })
       }
     }

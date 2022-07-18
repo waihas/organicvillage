@@ -71,23 +71,32 @@ class OrderController extends Controller
         //     "total" => 2475
         //   ]
 
+        $products = '';
+
+        foreach ($request->products as $product) {
+            $products .= '- Name: ' . $product['name'] . ' ';
+            $products .= '- Option: ' . $product['option'] . ' ';
+            $products .= '- Quantity: ' . $product['quantity'] . ' ';
+            $products .= '- Price: ' . $product['price'] . ' MAD\n';
+        }
+
         $ord_num = random_int(100000, 999999);
         $values = [
             $ord_num, 
             $request->name,
             $request->phone, 
             $request->city, 
-            'Argan 50DH, Amlou 12DH', 
+            $products, //'Argan 50DH, Amlou 12DH', 
             $request->total. ' + 50 MAD', //'2344 MAD',  
             date('Y-m-d H:i:s')
         ];
 
-        if ($request->city == "agadir") {
-            $googleSheet->saveDataToSheet($values, 'Agadir');
-        }
-        else if ($request->city == "autres") {
-            $googleSheet->saveDataToSheet($values, 'Autres');
-        }
+        // if ($request->city == "agadir") {
+            $googleSheet->saveDataToSheet($values, 'Orders');
+        // }
+        // else if ($request->city == "autres") {
+            // $googleSheet->saveDataToSheet($values, 'Autres');
+        // }
 
         return response()->json([
             'message' => "Data saved successfully",

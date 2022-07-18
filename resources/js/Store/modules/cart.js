@@ -410,6 +410,9 @@ export const mutations = {
                 record.quantity--
         }
     },
+    [types.CLEAR_CART] (state) {
+        state.added = [];
+    },
 }
 
 export const actions = {
@@ -436,5 +439,8 @@ export const actions = {
             id: id,
             option_id: optionId,
         })
+    },
+    clearCart({ commit }) {
+        commit(types.CLEAR_CART)
     }
 }
