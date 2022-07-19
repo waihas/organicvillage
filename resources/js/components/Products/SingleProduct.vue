@@ -3,7 +3,7 @@
     <img :src="product.image"
         :alt="product.name"
         class="w-full h-32 md:h-64 object-cover object-center mx-auto md:rounded-lg shadow-md"
-        loading="lazy">    
+        loading="lazy">
     <div class="relative md:px-4 -mt-6 md:-mt-16 lg:h-64">
         <div class="md:hidden">
             <button type="button" @click="addItemCart()" 
@@ -11,24 +11,27 @@
                 Add to cart
             </button>
         </div>
-        <div class="bg-white p-2 md:p-6 lg:rounded-lg lg:shadow-lg h-full">
+        <div class="bg-white p-2 md:p-6 rounded-b-2xl lg:rounded-lg lg:shadow-lg h-full grid grid-rows-2 md:grid-rows-4 grid-flow-col">
             <!-- <div class="flex items-baseline">
                 <span class="bg-secondary mb-2 text-white text-xs px-2 inline-block rounded-full uppercase font-semibold tracking-wide">
                     120 ml
                 </span>
             </div> -->
-            <h4 class="md:text-xl uppercase leading-tight">
-                {{product.name}}
-            </h4>
-            <div v-if="product.description" class="mt-1">
-                <span class="text-sm text-gray-600">
-                  {{product.description}}
-                </span>
+            <div class="row-span-1 md:row-span-2">
+                <h4 class="md:text-xl uppercase leading-tight">
+                    {{product.name}}
+                </h4>
+                <div v-if="product.description" class="mt-1">
+                    <span class="text-sm text-gray-600">
+                    {{product.description}}
+                    </span>
+                </div>
+                <div v-else class="mt-1">
+                    <span class="text-sm text-white">Cosmetique Maroc</span>
+                </div>
             </div>
-            <div v-else class="mt-1">
-                <span class="text-sm text-white">Cosmetique Maroc</span>
-            </div>
-            <div class="mt-4 flex flex-row justify-between items-center">
+            <div class="mt-4 flex flex-row items-center row-span-1"
+                :class="product.price != 0 ? 'justify-end' : 'justify-between'">
                 <!-- @if($product->item->special_price)
                 <i class="text-gray-500 line-through">{{ $product->item->price }} {{ config('settings.currency_symbol') }}</i>
                 <span class="text-gray-600 font-bold">
@@ -57,7 +60,7 @@
                     </span>
                 </div>
             </div>
-            <div class="hidden md:block">
+            <div class="hidden md:block md:row-span-1">
                 <button type="button" @click="addItemCart()"
                   class="w-full text-sm md:text-base block bg-primary-default py-2 px-2 text-white text-center md:rounded shadow-lg uppercase font-light mt-6 hover:bg-primary hover:text-white duration-300 ease-in-out">
                   Add to cart

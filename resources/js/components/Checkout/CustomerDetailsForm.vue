@@ -61,7 +61,7 @@
         </div>
 
         <div class="w-full md:pl-6 md:flex mx-auto mt-2 flex items-center">
-            <input id="terms" v-model="form.terms" type="checkbox" class="w-4 h-4 text-primary-default transition duration-150 ease-in-out" />
+            <input id="terms" v-model="form.terms" disabled type="checkbox" class="w-4 h-4 text-primary-default transition duration-150 ease-in-out" />
             <label for="terms" class="block ml-2 text-sm text-gray-900 leading-5">
                 I agree to the <router-link class="text-gray-700 hover:text-primary-default" :to="{name: 'legal.terms'}">Terms & Conditions</router-link>
             </label>

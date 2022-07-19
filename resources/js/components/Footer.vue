@@ -26,7 +26,7 @@
                     </nav>
                 </div>
                 <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-                    <h2 class="title-font font-medium text-primary-default tracking-widest text-sm mb-3">Pages</h2>
+                    <h2 class="title-font font-medium text-primary-default tracking-widest text-sm mb-3">PAGES</h2>
                     <nav class="list-none mb-10">
                         <li>
                             <router-link :to="{name: 'home'}" class="text-gray-300 hover:text-primary-dark cursor-pointer">Accueil</router-link>
