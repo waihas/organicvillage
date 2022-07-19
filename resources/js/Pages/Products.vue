@@ -20,12 +20,36 @@
                 </h3>
             </div>
         </nav>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-8 pt-8 max-w-7xl mx-auto">
+        <!-- <div class="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-8 pt-8 max-w-7xl mx-auto">
             <div v-for="product in products" :key="product.id">
                 <single-product :product="product"></single-product>
             </div>
+        </div> -->
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 md:gap-x-8 xl-grid-cols-4 gap-y-10 gap-x-6 ">
+            <div class="container mx-auto shadow-lg lg:shadow-none rounded-lg max-w-md transition duration-300" 
+                v-for="product in products" :key="product.id">
+                <single-product :product="product"></single-product>
+            </div>
+            
+            <!-- <div class="container mx-auto shadow-lg rounded-lg max-w-md hover:shadow-2xl transition duration-300">
+                <img src="https://images.unsplash.com/photo-1627751476653-e954179b174a" alt="" class="rounded-t-lg w-full">
+                <div class="p-6">
+                    <h1 class="md:text-1xl text-xl hover:text-indigo-600 transition duration-200  font-bold text-gray-900 ">This is Amazing for people to visit.</h1>
+                <p class="text-gray-700 my-2 hover-text-900 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium quis.</p>
+                </div>
+            </div> -->
         </div>
     </section>
+
+
+
+    
+
+
+
+
+
+
     
     <!-- @isset($bestseller->products)
     <section class="bg-primary p-4 py-8 md:px-0">

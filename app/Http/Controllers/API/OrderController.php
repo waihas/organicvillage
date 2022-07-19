@@ -100,7 +100,7 @@ class OrderController extends Controller
 
         return response()->json([
             'message' => "Data saved successfully",
-            'orderId' => $ord_num 
+            'orderId' => $ord_num
         ],201);
     }
 
