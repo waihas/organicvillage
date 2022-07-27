@@ -26,12 +26,12 @@
                     {{product.description}}
                     </span>
                 </div>
-                <div v-else class="mt-1">
+                <div v-else class="hidden md:block mt-1">
                     <span class="text-sm text-white">Cosmetique Maroc</span>
                 </div>
             </div>
             <div class="mt-4 flex flex-row items-center row-span-1"
-                :class="product.price != 0 ? 'justify-end' : 'justify-between'">
+                :class="product.price != 0 ? 'justify-center md:justify-end' : 'justify-between'">
                 <!-- @if($product->item->special_price)
                 <i class="text-gray-500 line-through">{{ $product->item->price }} {{ config('settings.currency_symbol') }}</i>
                 <span class="text-gray-600 font-bold">

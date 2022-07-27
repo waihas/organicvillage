@@ -76,7 +76,7 @@
                                     <span class="text-gray-800 text-sm">Discount</span>
                                 </div>
                                 <div class="w-full">
-                                    <span class="text-gray-800 text-sm">Livraison (+40 DHs hors d'Agadir)</span>
+                                    <span class="text-gray-800 text-sm truncate">Livraison (+40 DHs hors d'Agadir)</span>
                                 </div>
                                 <hr class="my-5">
                                 <div class="w-full">

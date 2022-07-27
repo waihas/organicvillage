@@ -60,7 +60,7 @@
               </div>
         </div>
         <div v-if="form.city == 'autre'" class="w-full md:flex mx-auto mt-2">
-            <label for="new_city" class="w-full md:w-2/5 md:pl-6 text-white block mb-2 tracking-wide">
+            <label for="new_city" class="w-full md:w-2/5 md:pl-6 text-white block tracking-wide">
                 Ville</label>
               <div class="flex flex-col w-full">
                 <input class="w-full mb-2 bg-gray-200 appearance-none border-2 border-gray-200 rounded py-2 px-4 text-gray-800 leading-tight focus:outline-none focus:bg-white focus:border-primary-default"
