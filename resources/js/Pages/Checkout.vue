@@ -48,15 +48,15 @@
                                             </span>
                                         </h3>
                                         <div class="flex items-center mt-2">
-                                            <button @click="decrementQty(product.id, product.option_id)"
+                                            <!-- <button @click="decrementQty(product.id, product.option_id)"
                                                 class="text-gray-500 focus:outline-none focus:text-gray-600">
                                                 <svg class="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                            </button>
+                                            </button> -->
                                             <span class="text-gray-800 mx-2">{{ p.quantity }}</span>
-                                            <button @click="incrementQty(product.id, product.option_id)"
+                                            <!-- <button @click="incrementQty(product.id, product.option_id)"
                                                 class="text-gray-500 focus:outline-none focus:text-gray-600">
                                                 <svg class="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                            </button>
+                                            </button> -->
                                         </div>
                                     </div>
                                 </div>
@@ -73,10 +73,10 @@
                         <div class="flex justify-between items-center mb-8">
                             <div class="w-1/2 pl-6">
                                 <div class="w-full">
-                                    <span class="text-gray-800 text-sm">Livraison</span>
+                                    <span class="text-gray-800 text-sm">Discount</span>
                                 </div>
                                 <div class="w-full">
-                                    <span class="text-gray-800 text-sm">Discount</span>
+                                    <span class="text-gray-800 text-sm">Livraison (+40 DHs hors d'Agadir)</span>
                                 </div>
                                 <hr class="my-5">
                                 <div class="w-full">
@@ -85,10 +85,10 @@
                             </div>
                             <div class="w-1/2 pr-6 text-right">
                                 <div class="w-full">
-                                    <span class="text-gray-800 text-sm">50 MAD</span>
+                                    <span class="text-gray-800 text-sm">0 MAD</span>
                                 </div>
                                 <div class="w-full">
-                                    <span class="text-gray-800 text-sm">0 MAD</span>
+                                    <span class="text-gray-800 text-sm">25 MAD</span>
                                 </div>
                                 <hr class="my-5">
                                 <div class="w-full">

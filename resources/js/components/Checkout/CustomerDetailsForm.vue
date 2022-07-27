@@ -54,9 +54,21 @@
                     <option value="Taroudant">Taroudant</option>
                     <option value="Temara">Temara</option>
                     <option value="Tetouan">Tetouan</option>
-                    <option value="Autre">Autre</option>
+                    <option value="autre">Autre</option>
                 </select>
                 <has-error class="mt-2 text-sm text-red-600" :form="form" field="city" />
+              </div>
+        </div>
+        <div v-if="form.city == 'autre'" class="w-full md:flex mx-auto mt-2">
+            <label for="new_city" class="w-full md:w-2/5 md:pl-6 text-white block mb-2 tracking-wide">
+                Ville</label>
+              <div class="flex flex-col w-full">
+                <input class="w-full mb-2 bg-gray-200 appearance-none border-2 border-gray-200 rounded py-2 px-4 text-gray-800 leading-tight focus:outline-none focus:bg-white focus:border-primary-default"
+                  :class="{ 'border-red-500': form.errors.has('new_city') }"
+                  v-model="form.new_city" type="text"
+                  placeholder="Name of your city.."
+                >
+                <has-error class="mb-2 text-sm text-red-600" :form="form" field="new_city" />
               </div>
         </div>
 
@@ -102,6 +114,7 @@ export default {
         name: '',
         phone: '',
         city: 'Agadir',
+        new_city: null,
         terms: true
       }),
     }),

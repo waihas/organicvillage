@@ -2,16 +2,16 @@
   <div class="transform duration-500 ease-in-out scale-100 hover:scale-105 h-full">
     <img :src="product.image"
         :alt="product.name"
-        class="w-full h-32 md:h-64 object-cover object-center mx-auto md:rounded-lg shadow-md"
+        class="w-full h-32 md:h-64 object-cover object-center mx-auto rounded-lg shadow-md"
         loading="lazy">
-    <div class="relative md:px-4 -mt-6 md:-mt-16 lg:h-64">
-        <div class="md:hidden">
+    <div class="relative px-6 md:px-4 -mt-6 md:-mt-16 lg:h-64">
+        <!-- <div class="md:hidden">
             <button type="button" @click="addItemCart()" 
                 class="w-full text-sm md:text-base block bg-primary-default py-2 px-2 text-white text-center md:rounded shadow-lg uppercase font-light mt-6 hover:bg-primary hover:text-white duration-300 ease-in-out">
                 Add to cart
             </button>
-        </div>
-        <div class="bg-white p-2 md:p-6 rounded-b-2xl lg:rounded-lg lg:shadow-lg h-full grid grid-rows-2 md:grid-rows-4 grid-flow-col">
+        </div> -->
+        <div class="bg-white p-4 md:p-6 rounded-2xl lg:rounded-lg shadow-lg h-full grid grid-rows-3 md:grid-rows-4 grid-flow-col">
             <!-- <div class="flex items-baseline">
                 <span class="bg-secondary mb-2 text-white text-xs px-2 inline-block rounded-full uppercase font-semibold tracking-wide">
                     120 ml
@@ -60,7 +60,8 @@
                     </span>
                 </div>
             </div>
-            <div class="hidden md:block md:row-span-1">
+            <!-- <div class="hidden md:block md:row-span-1"> -->
+            <div class="block row-span-1">
                 <button type="button" @click="addItemCart()"
                   class="w-full text-sm md:text-base block bg-primary-default py-2 px-2 text-white text-center md:rounded shadow-lg uppercase font-light mt-6 hover:bg-primary hover:text-white duration-300 ease-in-out">
                   Add to cart

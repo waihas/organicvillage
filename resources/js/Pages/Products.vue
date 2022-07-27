@@ -25,8 +25,8 @@
                 <single-product :product="product"></single-product>
             </div>
         </div> -->
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 md:gap-x-8 xl-grid-cols-4 gap-y-10 gap-x-6 ">
-            <div class="container mx-auto shadow-lg lg:shadow-none rounded-lg max-w-md transition duration-300" 
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 md:gap-x-8 xl-grid-cols-4 gap-y-10 gap-x-6 px-8 md:px-0">
+            <div class="container mx-auto rounded-lg max-w-md transition duration-300" 
                 v-for="product in products" :key="product.id">
                 <single-product :product="product"></single-product>
             </div>
